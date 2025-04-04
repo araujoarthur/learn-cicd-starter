@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # didn't get why it's needed.
       
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.23.0"
 
-      - name: Check Go Version
-        run: go version
+      - name: Run Tests
+        run: go test ./...

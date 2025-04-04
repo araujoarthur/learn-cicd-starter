@@ -1,0 +1,20 @@
+name: cd
+
+on: 
+   push:
+      branches: main
+
+jobs:
+   deploy:
+      name: Deploy
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Checkout the Code
+           uses: actions/checkout@v4
+
+         - name: Setup Go Toolchain
+           uses: actions/setup-go.yml
+
+         - name: Build Application
+           run: ./scripts/buildprod.sh
